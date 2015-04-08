@@ -23,5 +23,7 @@ def index(state=None):
     return render_template('index.html',
                             boy_mentions=boy_mentions,
                                 girl_mentions=girl_mentions)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
