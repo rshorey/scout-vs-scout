@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import requests
 import os
 
@@ -20,13 +20,8 @@ def index(state=None):
     girl_mentions = get_phrase_count("girl scouts",state)
     eagle_mentions = get_phrase_count("eagle scout",state)
     gold_mentions = get_phrase_count("gold award",state)
-    return ('Boy Scouts mentions: {boy_mentions}<br>'\
-        'Girl Scouts mentions: {girl_mentions}<br>'\
-        'Eagle Scout mentions: {eagle_mentions}<br>'\
-        'Gold Award mentions: {gold_mentions}<br>').format(boy_mentions=boy_mentions,
-                                girl_mentions=girl_mentions,
-                                eagle_mentions=eagle_mentions,
-                                gold_mentions=gold_mentions)
-
+    return render_template('index.html',
+                            boy_mentions=boy_mentions,
+                                girl_mentions=girl_mentions)
 if __name__ == '__main__':
     app.run(debug=True)
