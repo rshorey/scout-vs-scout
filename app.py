@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 import requests
 import os
 
@@ -13,6 +13,29 @@ def get_phrase_count(phrase,state):
     query_result = requests.get(query_url).json()
     return query_result["num_found"]
 
+def get_leg(zipcode):
+    sunlight_api_key = os.environ.get("SUNLIGHT_API_KEY")
+    base_url = "https://congress.api.sunlightfoundation.com/legislators/locate"
+    query_url = base_url + "?apikey={apikey}&zip={zipcode}".format(apikey=sunlight_api_key,zipcode=zipcode)
+    results = requests.get(query_url).json()
+    members = {"house":[],"senate":[]}
+    for mem in results["results"]:
+        name_parts = [mem["title"],
+                        mem["first_name"],
+                        mem["middle_name"],
+                        mem["last_name"],
+                        mem["name_suffix"]
+                    ]
+        name = " ".join([n for n in name_parts if n])
+        members[mem["chamber"]].append({
+            "name":name,
+            "email":mem["oc_email"],
+            "address":mem["office"],
+            "twitter":mem.get("twitter",None)
+            })
+
+    return members
+
 @app.route('/')
 @app.route('/<state>')
 def index(state=None):
@@ -23,6 +46,16 @@ def index(state=None):
     return render_template('index.html',
                             boy_mentions=boy_mentions,
                                 girl_mentions=girl_mentions)
+
+@app.route('/getzip', methods = ['POST'])
+def signup():
+    zipcode = request.form['zipcode']
+    return redirect('/contact/{}'.format(zipcode))
+
+@app.route('/contact/<zipcode>')
+def contact(zipcode):
+    members = get_leg(zipcode)
+    return render_template('contact.html',members=members)
 
 
 if __name__ == '__main__':

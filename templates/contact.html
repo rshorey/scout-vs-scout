@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<title>Scout Vs. Scout</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+<div class="container">
+    <h1>Contact your representative!</h1>
+    <h4>
+        <p>
+            Let your representative know you'd like to hear more about Girl Scouts! Tell them what your Troop has done, or about your Gold Award project.
+        </p>
+        <p>
+            Your Senators are:
+        </p>
+        <ul>
+            {% for m in members["senate"] %}
+            <li>
+            {{ m["name"] }}
+            </li>
+            {% endfor %}
+        </ul>
+        {% if members["house"]|length > 1 %}
+        <p> This zip code is split between multiple congressional districts, so we're showing all possibilities.
+        </p>
+        <p>
+            Your Representatives are:
+        </p>
+        {% else %}
+        <p>
+            Your Representative is:
+        </p>
+        {% endif %}
+        <ul>
+            {% for m in members["house"] %}
+            <li>
+            {{ m["name"] }}
+            </li>
+            {% endfor %}
+        </ul>
+
+    </h4>
+</div>
+</body>
+</html>
