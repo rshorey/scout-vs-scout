@@ -1,12 +1,18 @@
 from flask import Flask, render_template, request, redirect
 import requests
 import os
+import datetime
 
 app = Flask(__name__)
 
 def get_phrase_count(phrase,state):
     sunlight_api_key = os.environ.get("SUNLIGHT_API_KEY")
-    base_url = "http://capitolwords.org/api/1/text.json?apikey={api_key}&start_date=2014-01-01&end_date=2014-12-31".format(api_key=sunlight_api_key)
+    now = datetime.datetime.now()
+    one_year = now - datetime.timedelta(days=365)
+    end_date = now.strftime("%Y-%m-%d")
+    start_date = one_year.strftime("%Y-%m-%d")
+    base_url = "http://capitolwords.org/api/1/text.json?apikey={api_key}&start_date={start_date}&end_date={end_date}"
+    base_url = base_url.format(api_key=sunlight_api_key,start_date=start_date,end_date=end_date)
     if state is not None:
         base_url += "&state={state}".format(state=state.upper())
     query_url = base_url + "&phrase={query}".format(query=phrase.replace(" ","+"))
@@ -55,7 +61,11 @@ def signup():
 @app.route('/contact/<zipcode>')
 def contact(zipcode):
     members = get_leg(zipcode)
-    return render_template('contact.html',members=members)
+    boy_mentions = get_phrase_count("boy scouts",None)
+    girl_mentions = get_phrase_count("girl scouts",None)
+    return render_template('contact.html',members=members,
+                                        boy_mentions=boy_mentions,
+                                        girl_mentions=girl_mentions)
 
 
 if __name__ == '__main__':
