@@ -1,0 +1,11 @@
+.jumbotron {
+    margin-bottom: 0px;
+    color: black;
+}
+
+.flag {
+    background-image: url(https://download.unsplash.com/photo-1428515634197-76c85896cf1f);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
