@@ -43,7 +43,6 @@ def get_leg(zipcode):
     return members
 
 @app.route('/')
-@app.route('/<state>')
 def index(state=None):
     boy_mentions = get_phrase_count("boy scouts",state)
     girl_mentions = get_phrase_count("girl scouts",state)
@@ -67,6 +66,10 @@ def contact(zipcode):
                                         boy_mentions=boy_mentions,
                                         girl_mentions=girl_mentions)
 
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

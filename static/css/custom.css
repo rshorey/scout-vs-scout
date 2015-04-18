@@ -9,3 +9,30 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+h1, h2, h3, h4, h5, h6, p, div {
+    font-family: 'Inconsolata', Georgia, Times, serif;
+}
+
+h1 {
+    font-weight: bold;
+
+}
+
+#do-something {
+    padding-top:5%;
+}
+
+html,body{
+    height: 100%
+}
+
+
+
+#footer{
+    padding-top: 10%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align:center;
+}
