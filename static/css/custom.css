@@ -4,7 +4,7 @@
 }
 
 .flag {
-    background-image: url(https://download.unsplash.com/photo-1428515634197-76c85896cf1f);
+    background-image: url("../img/photo-1428515634197-76c85896cf1f.png");
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;

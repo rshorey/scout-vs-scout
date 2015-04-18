@@ -8,24 +8,24 @@
 </head>
 <body>
 <div class="jumbotron flag">
-<div class="container jumbotron-text">
-    <h1>Who gets more recognition?</h1>
-    <h4>
-        <p>
+        <div class="container-fluid jumbotron-text">
+        <h1>Who gets more recognition?</h1>
+        <h4>
+            <p>
             'Boy Scouts' appeared in the congressional record {{boy_mentions}} times in the past year.
-        </p>
-        <p>
-            'Girl Scouts' appeared {{girl_mentions}} times.
-        </p>
-    </h4>
-</div>
-</div>
-<div class="container">
-Want to see that change? Enter your zipcode to contact your congressperson.
-<form action="/getzip" method="post">
-            <input type="text" name="zipcode"></input>
-            <input type="submit" value="Go"></input>
-        </form>
-</div>
+            </p>
+            <p>
+                'Girl Scouts' appeared {{girl_mentions}} times.
+            </p>
+        </h4>
+    </div><!--container-fluid jumbotron-text-->
+</div><!--jumbotron-flag-->
+<div class="container-fluid">
+    Want to see that change? Enter your zipcode to contact your congressperson.
+    <form action="/getzip" method="post">
+                <input type="text" name="zipcode"></input>
+                <input type="submit" value="Go"></input>
+            </form>
+</div><!--container-fluid-->
 </body>
 </html>
