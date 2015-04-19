@@ -11,9 +11,15 @@
 <div class="container-fluid">
     <h1>Contact your representative!</h1>
     <h4>
+    {% if members["senate"]|length + members["house"]|length == 0 %}
+        <p> Could not find any Representatives or Senators for that zip code. Make sure you entered it correctly. Note that APO zipcodes are not connected to any Senators.
+        </p>
+    {% else %}
+
         <p>
             Let your representative know you'd like to hear more about Girl Scouts! Tell them what your Troop has done, or about your Gold Award project.
         </p>
+        {% if members["senate"]|length > 0 %}
         <p>
             Your Senators are:
         </p>
@@ -24,6 +30,7 @@
             </li>
             {% endfor %}
         </ul>
+        {% endif %}
         {% if members["house"]|length > 1 %}
         <p> This zip code is split between multiple congressional districts, so we're showing all possibilities.
         </p>
@@ -57,7 +64,9 @@
         <br />
         <span class="text-warning">[your name and troop number] </span>
 
+    {% endif %}
     </h4>
+    
 </div>
 {% include "footer.html" %}
 </body>
