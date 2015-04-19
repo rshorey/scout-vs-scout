@@ -1,0 +1,12 @@
+{
+  "name": "Scout Vs. Scout",
+  "description": "Checks whether girl scouts and boy scouts are getting equal mentions in congress",
+  "repository": "https://github.com/rshorey/scout-vs-scout",
+  "env": {
+    "SUNLIGHT_API_KEY": {
+        "description": "Sunlight Foundation API key",
+        "required": true
+
+    }
+  }
+}

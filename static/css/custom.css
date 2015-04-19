@@ -1,0 +1,59 @@
+.jumbotron {
+    margin-bottom: 0px;
+    color: black;
+    height: 40%;
+}
+
+.flag {
+    background-image: url("../img/photo-1428515634197-76c85896cf1f.png");
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.girls {
+    background-image: url("../img/girls.jpg");
+    background-position:50% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4, h5, h6, p, div {
+    font-family: 'Inconsolata', Georgia, Times, serif;
+}
+
+h1 {
+
+    font-family: 'Righteous', Arial, serif;
+}
+
+.first-words {
+    font-size: x-large;
+}
+
+#do-something {
+    padding-top:2%;
+    padding-bottom:2%;
+}
+
+html,body{
+    height: 100%
+}
+
+
+
+#footer{
+    padding-top: 5%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align:center;
+}
+
+.img-center {
+    margin: 0 auto;
+}
+
+.rep-list{
+  margin: 15px 0;
+}
