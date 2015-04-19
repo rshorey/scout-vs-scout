@@ -32,7 +32,8 @@ h1 {
 }
 
 #do-something {
-    padding-top:5%;
+    padding-top:2%;
+    padding-bottom:2%;
 }
 
 html,body{
@@ -42,7 +43,7 @@ html,body{
 
 
 #footer{
-    padding-top: 10%;
+    padding-top: 5%;
     left: 0;
     position: absolute;
     right: 0;

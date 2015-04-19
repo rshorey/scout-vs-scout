@@ -9,37 +9,44 @@
 </head>
 <body>
 <div class="jumbotron girls">
-        <div class="container-fluid jumbotron-text">
+    <div class="container-fluid jumbotron-text">
         <h1>Who gets more recognition?</h1>
 
-        </div><!--container-fluid jumbotron-text-->
+    </div><!--container-fluid jumbotron-text-->
 </div><!--jumbotron-flag-->
-<div class="row">
-        <div class="container-fluid">
+<div class="container-fluid">
+    <div class="row">
+
         <h4>
                     'Boy Scouts' appeared in the congressional record {{boy_mentions}} times in the past year.
         </h4>
-        </div>
-        </div>
-            <div class="row">
-        <div class="container-fluid">
+    </div><!--row-->
+    <div class="row">
         <h4>
                 'Girl Scouts' appeared {{girl_mentions}} times in the same period.
         </h4>
-        </div>
-        </div>
-    </div><!--container-fluid jumbotron-text-->
-</div><!--jumbotron-flag-->
+    </div> <!--row-->
+</div><!--container-fluid-->
 
-<div class="container-fluid" id="do-something">
-    Want to see that change?<br \>
-    Enter your zipcode to contact your congressperson. <br\>
-    <form action="/getzip" method="post">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6";>
+            <h2>Want to see that change?</h2>
+            Enter your zipcode to contact your congressperson. <br\>
+            <form action="/getzip" method="post">
                 <input type="text" name="zipcode"></input>
                 <input type="submit" value="Go"></input>
             </form>
-</div><!--container-fluid-->
+        </div> <!--col-sm-6-->
 
+        <div class="col-sm-6";>
+            <h2> What is the congressional record? </h2>
+        
+        According to the Government Publishing Office, the Congressional Record contains both words spoken on the floor of the House and Senate, and words inserted or appended by Senators or Members of Congress. Find out more <a href="http://www.gpo.gov/help/index.html#about_congressional_record.htm">here</a>.
+        </div> <!--col-sm-6-->
+    </div> <!--row-->
+</div> <!--container-fluid-->
 {% include "footer.html" %}
 </body>
 </html>
