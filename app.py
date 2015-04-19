@@ -5,7 +5,7 @@ import datetime
 
 app = Flask(__name__)
 
-def get_phrase_count(phrase,state):
+def get_phrase_count(phrase):
     sunlight_api_key = os.environ.get("SUNLIGHT_API_KEY")
     now = datetime.datetime.now()
     one_year = now - datetime.timedelta(days=365)
@@ -13,8 +13,6 @@ def get_phrase_count(phrase,state):
     start_date = one_year.strftime("%Y-%m-%d")
     base_url = "http://capitolwords.org/api/1/text.json?apikey={api_key}&start_date={start_date}&end_date={end_date}"
     base_url = base_url.format(api_key=sunlight_api_key,start_date=start_date,end_date=end_date)
-    if state is not None:
-        base_url += "&state={state}".format(state=state.upper())
     query_url = base_url + "&phrase={query}".format(query=phrase.replace(" ","+"))
     query_result = requests.get(query_url).json()
     return query_result["num_found"]
@@ -43,11 +41,11 @@ def get_leg(zipcode):
     return members
 
 @app.route('/')
-def index(state=None):
-    boy_mentions = get_phrase_count("boy scouts",state)
-    girl_mentions = get_phrase_count("girl scouts",state)
-    eagle_mentions = get_phrase_count("eagle scout",state)
-    gold_mentions = get_phrase_count("gold award",state)
+def index():
+    boy_mentions = get_phrase_count("boy scouts")
+    girl_mentions = get_phrase_count("girl scouts")
+    #eagle_mentions = get_phrase_count("eagle scout")
+    #gold_mentions = get_phrase_count("gold award")
     return render_template('index.html',
                             boy_mentions=boy_mentions,
                                 girl_mentions=girl_mentions)
@@ -60,8 +58,8 @@ def signup():
 @app.route('/contact/<zipcode>')
 def contact(zipcode):
     members = get_leg(zipcode)
-    boy_mentions = get_phrase_count("boy scouts",None)
-    girl_mentions = get_phrase_count("girl scouts",None)
+    boy_mentions = get_phrase_count("boy scouts")
+    girl_mentions = get_phrase_count("girl scouts")
     return render_template('contact.html',members=members,
                                         boy_mentions=boy_mentions,
                                         girl_mentions=girl_mentions)

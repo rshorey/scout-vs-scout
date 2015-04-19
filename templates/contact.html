@@ -8,8 +8,13 @@
     <link href='http://fonts.googleapis.com/css?family=Inconsolata|Righteous' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div class="container-fluid">
+
+<div class="jumbotron flag">
+    <div class="container-fluid jumbotron-text">
     <h1>Contact your representative!</h1>
+    </div><!--container-fluid jumbotron-text-->
+</div><!--jumbotron-flag-->
+<div class="container-fluid">
     <h4>
     {% if members["senate"]|length + members["house"]|length == 0 %}
         <p> Could not find any Representatives or Senators for that zip code. Make sure you entered it correctly. Note that APO zipcodes are not connected to any Senators.
@@ -25,8 +30,12 @@
         </p>
         <ul>
             {% for m in members["senate"] %}
-            <li>
+            <li class="rep-list">
             {{ m["name"] }}
+            <br/>
+            {{ m["address"] }}
+            <br/>
+            Washington DC, 20510
             </li>
             {% endfor %}
         </ul>
@@ -44,8 +53,12 @@
         {% endif %}
         <ul>
             {% for m in members["house"] %}
-            <li>
+            <li class="rep-list">
             {{ m["name"] }}
+            <br/>
+            {{ m["address"] }}
+            <br/>
+            Washington, DC 20515
             </li>
             {% endfor %}
         </ul>
@@ -54,7 +67,7 @@
         <br />
         Did you know that in the past year, Boy Scouts were mentioned in the congressional record {{boy_mentions}} times, and Girl Scouts were mentioned {{girl_mentions}} times? I wanted to tell you about some of the accomplishments of my Girl Scout Troop, and to encourage you to recognize them! <br />
         <br />
-        <span class="text-warning">[Tell them a bit about service projects, exciting activities, Gold Award projects, etc!]</span>
+        <span class="bg-info">[Tell them a bit about service projects, exciting activities, Gold Award projects, etc!]</span>
         <br />
         <br />
         I appreciate your service to our country, and thank you for your time.
@@ -62,7 +75,7 @@
         <br />
         Sincerely,
         <br />
-        <span class="text-warning">[your name and troop number] </span>
+        <span class="bg-info">[your name and troop number] </span>
 
     {% endif %}
     </h4>

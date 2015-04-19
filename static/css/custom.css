@@ -1,11 +1,19 @@
 .jumbotron {
     margin-bottom: 0px;
     color: black;
+    height: 40%;
 }
 
 .flag {
     background-image: url("../img/photo-1428515634197-76c85896cf1f.png");
     background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.girls {
+    background-image: url("../img/girls.jpg");
+    background-position:50% 25%;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -43,4 +51,8 @@ html,body{
 
 .img-center {
     margin: 0 auto;
+}
+
+.rep-list{
+  margin: 15px 0;
 }
