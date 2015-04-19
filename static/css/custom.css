@@ -15,8 +15,12 @@ h1, h2, h3, h4, h5, h6, p, div {
 }
 
 h1 {
-    font-weight: bold;
 
+    font-family: 'Righteous', Arial, serif;
+}
+
+.first-words {
+    font-size: x-large;
 }
 
 #do-something {
