@@ -1,86 +1,97 @@
 <!doctype html>
 <html>
-<head>
-<title>Scout Vs. Scout</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" type="text/css" href="../static/css/custom.css">
-    <link href='http://fonts.googleapis.com/css?family=Inconsolata|Righteous' rel='stylesheet' type='text/css'>
-</head>
-<body>
+    <head>
+    <title>Scout Vs. Scout</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/css/custom.css">
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata|Righteous' rel='stylesheet' type='text/css'>
 
-<div class="jumbotron flag">
-    <div class="container-fluid jumbotron-text">
-    <h1>Contact your representative!</h1>
-    </div><!--container-fluid jumbotron-text-->
-</div><!--jumbotron-flag-->
-<div class="container-fluid">
-    <h4>
-    {% if members["senate"]|length + members["house"]|length == 0 %}
-        <p> Could not find any Representatives or Senators for that zip code. Make sure you entered it correctly. Note that APO zipcodes are not connected to any Senators.
-        </p>
-    {% else %}
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        <p>
-            Let your representative know you'd like to hear more about Girl Scouts! Tell them what your Troop has done, or about your Gold Award project.
-        </p>
-        {% if members["senate"]|length > 0 %}
-        <p>
-            Your Senators are:
-        </p>
-        <ul>
-            {% for m in members["senate"] %}
-            <li class="rep-list">
-            {{ m["name"] }}
-            <br/>
-            {{ m["address"] }}
-            <br/>
-            Washington, DC 20510
-            </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% if members["house"]|length > 1 %}
-        <p> This zip code is split between multiple congressional districts, so we're showing all possibilities.
-        </p>
-        <p>
-            Your Representatives are:
-        </p>
-        {% else %}
-        <p>
-            Your Representative is:
-        </p>
-        {% endif %}
-        <ul>
-            {% for m in members["house"] %}
-            <li class="rep-list">
-            {{ m["name"] }}
-            <br/>
-            {{ m["address"] }}
-            <br/>
-            Washington, DC 20515
-            </li>
-            {% endfor %}
-        </ul>
-        <h2> Sample Letter </h2>
-        <h4> Dear Senator,
-        <br />
-        Did you know that in the past year, Boy Scouts were mentioned in the congressional record {{boy_mentions}} times, and Girl Scouts were mentioned {{girl_mentions}} times? I wanted to tell you about some of the accomplishments of my Girl Scout Troop, and to encourage you to recognize them! <br />
-        <br />
-        <span class="bg-info">[Tell them a bit about service projects, exciting activities, Gold Award projects, etc!]</span>
-        <br />
-        <br />
-        I appreciate your service to our country, and thank you for your time.
-        <br />
-        <br />
-        Sincerely,
-        <br />
-        <span class="bg-info">[your name and troop number] </span>
+            ga('create', 'UA-62023938-1', 'auto');
+            ga('send', 'pageview');
+        </script>
 
-    {% endif %}
-    </h4>
-    
-</div>
-{% include "footer.html" %}
-</body>
+    </head>
+    <body>
+
+        <div class="jumbotron flag">
+            <div class="container-fluid jumbotron-text">
+            <h1>Contact your representative!</h1>
+            </div><!--container-fluid jumbotron-text-->
+        </div><!--jumbotron-flag-->
+        <div class="container-fluid">
+            <h4>
+            {% if members["senate"]|length + members["house"]|length == 0 %}
+                <p> Could not find any Representatives or Senators for that zip code. Make sure you entered it correctly. Note that APO zipcodes are not connected to any Senators.
+                </p>
+            {% else %}
+
+                <p>
+                    Let your representative know you'd like to hear more about Girl Scouts! Tell them what your Troop has done, or about your Gold Award project.
+                </p>
+                {% if members["senate"]|length > 0 %}
+                <p>
+                    Your Senators are:
+                </p>
+                <ul>
+                    {% for m in members["senate"] %}
+                    <li class="rep-list">
+                    {{ m["name"] }}
+                    <br/>
+                    {{ m["address"] }}
+                    <br/>
+                    Washington, DC 20510
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% if members["house"]|length > 1 %}
+                <p> This zip code is split between multiple congressional districts, so we're showing all possibilities.
+                </p>
+                <p>
+                    Your Representatives are:
+                </p>
+                {% else %}
+                <p>
+                    Your Representative is:
+                </p>
+                {% endif %}
+                <ul>
+                    {% for m in members["house"] %}
+                    <li class="rep-list">
+                    {{ m["name"] }}
+                    <br/>
+                    {{ m["address"] }}
+                    <br/>
+                    Washington, DC 20515
+                    </li>
+                    {% endfor %}
+                </ul>
+                <h2> Sample Letter </h2>
+                <h4> Dear Senator,
+                <br />
+                Did you know that in the past year, Boy Scouts were mentioned in the congressional record {{boy_mentions}} times, and Girl Scouts were mentioned {{girl_mentions}} times? I wanted to tell you about some of the accomplishments of my Girl Scout Troop, and to encourage you to recognize them! <br />
+                <br />
+                <span class="bg-info">[Tell them a bit about service projects, exciting activities, Gold Award projects, etc!]</span>
+                <br />
+                <br />
+                I appreciate your service to our country, and thank you for your time.
+                <br />
+                <br />
+                Sincerely,
+                <br />
+                <span class="bg-info">[your name and troop number] </span>
+
+            {% endif %}
+            </h4>
+            
+        </div>
+        {% include "footer.html" %}
+    </body>
 </html>

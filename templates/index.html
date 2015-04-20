@@ -1,52 +1,66 @@
 <!doctype html>
 <html>
-<head>
-<title>Scout Vs. Scout</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" type="text/css" href="static/css/custom.css">
-    <link href='http://fonts.googleapis.com/css?family=Inconsolata|Righteous' rel='stylesheet' type='text/css'>
-</head>
-<body>
-<div class="jumbotron girls">
-    <div class="container-fluid jumbotron-text">
-        <h1>Who gets more recognition?</h1>
+    <head>
+    <title>Scout Vs. Scout</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" type="text/css" href="static/css/custom.css">
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata|Righteous' rel='stylesheet' type='text/css'>
 
-    </div><!--container-fluid jumbotron-text-->
-</div><!--jumbotron-flag-->
-<div class="container-fluid">
-    <div class="row">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        <h4>
-                    'Boy Scouts' appeared in the congressional record {{boy_mentions}} times in the past year.
-        </h4>
-    </div><!--row-->
-    <div class="row">
-        <h4>
-                'Girl Scouts' appeared {{girl_mentions}} times in the same period.
-        </h4>
-    </div> <!--row-->
-</div><!--container-fluid-->
+            ga('create', 'UA-62023938-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+
+    </head>
+    <body>
+        <div class="jumbotron girls">
+            <div class="container-fluid jumbotron-text">
+                <h1>Who gets more recognition?</h1>
+
+            </div><!--container-fluid jumbotron-text-->
+        </div><!--jumbotron-flag-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12";>
+                    <h4>
+                        'Boy Scouts' appeared in the congressional record {{boy_mentions}} times in the past year.
+                    </h4>
+                </div> <!--col-sm-12-->
+            </div><!--row-->
+            <div class="row">
+                <div class="col-sm-12";>
+                    <h4>
+                        'Girl Scouts' appeared {{girl_mentions}} times in the same period.
+                    </h4>
+                </div> <!--col-sm-12-->
+            </div> <!--row-->
+        </div><!--container-fluid-->
 
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-6";>
-            <h2>Want to see that change?</h2>
-            Enter your zipcode to contact your congressperson. <br\>
-            <form action="/getzip" method="post">
-                <input type="text" name="zipcode"></input>
-                <input type="submit" value="Go"></input>
-            </form>
-        </div> <!--col-sm-6-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6";>
+                    <h2>Want to see that change?</h2>
+                    Enter your zipcode to contact your congressperson. <br\>
+                    <form action="/getzip" method="post">
+                        <input type="text" name="zipcode"></input>
+                        <input type="submit" value="Go"></input>
+                    </form>
+                </div> <!--col-sm-6-->
 
-        <div class="col-sm-6";>
-            <h2> What is the congressional record? </h2>
-        
-        According to the Government Publishing Office, the Congressional Record contains both words spoken on the floor of the House and Senate, and words inserted or appended by Senators or Members of Congress. Find out more <a href="http://www.gpo.gov/help/index.html#about_congressional_record.htm">here</a>.
-        </div> <!--col-sm-6-->
-    </div> <!--row-->
-</div> <!--container-fluid-->
-{% include "footer.html" %}
-</body>
+                <div class="col-sm-6";>
+                    <h2> What is the congressional record? </h2>
+                
+                    According to the Government Publishing Office, the Congressional Record contains both words spoken on the floor of the House and Senate, and words inserted or appended by Senators or Members of Congress. Find out more <a href="http://www.gpo.gov/help/index.html#about_congressional_record.htm">here</a>.
+                </div> <!--col-sm-6-->
+            </div> <!--row-->
+        </div> <!--container-fluid-->
+        {% include "footer.html" %}
+    </body>
 </html>
