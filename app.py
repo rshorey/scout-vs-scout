@@ -35,7 +35,8 @@ def get_leg(zipcode):
             "name":name,
             "email":mem["oc_email"],
             "address":mem["office"],
-            "twitter":mem.get("twitter",None)
+            "twitter":mem.get("twitter",None),
+            "contact_form":mem["contact_form"]
             })
 
     return members
